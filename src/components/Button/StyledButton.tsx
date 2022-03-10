@@ -9,6 +9,7 @@ type ButtonProps = {
 
 export const StyledButton = styled.button<ButtonProps>`
   font-size: 20px;
+  font-weight: bold;
   padding: 5px 10px;
   border-radius: 15px;
   background: ${(props) => {
