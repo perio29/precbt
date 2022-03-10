@@ -1,48 +1,49 @@
 import styled from "styled-components";
 
+type Variants = "primary" | "default";
+
 type ButtonProps = {
   disabled?: boolean;
-  primary?: boolean;
-  secondary?: boolean;
+  variants?: Variants;
 };
 
-export const StyledButton = styled.button`
+export const StyledButton = styled.button<ButtonProps>`
   font-size: 20px;
   padding: 5px 10px;
   border-radius: 15px;
-  background: ${(props: ButtonProps) => {
+  background: ${(props) => {
     if (props.disabled) {
       return "rgba(0,0,0,0.15)";
     }
-    if (props.primary) {
+    if (props.variants === "default") {
       return "#fff";
     }
-    if (props.secondary) {
+    if (props.variants === "primary") {
       return "#082b60";
     }
   }};
 
-  color: ${(props: ButtonProps) => {
+  color: ${(props) => {
     if (props.disabled) {
       return "#082b60";
     }
-    if (props.primary) {
+    if (props.variants === "default") {
       return "#082b60";
     }
-    if (props.secondary) {
+    if (props.variants === "primary") {
       return "#fff";
     }
   }};
 
   border: solid 3px rgba(8, 43, 96, 0.6);
-  box-shadow: ${(props: ButtonProps) => {
+  box-shadow: ${(props) => {
     if (props.disabled) {
       return "none";
     }
-    if (props.primary) {
+    if (props.variants === "default") {
       return "3px 3px 0 rgba(8, 43, 96, 1)";
     }
-    if (props.secondary) {
+    if (props.variants === "primary") {
       return "none";
     }
   }};
@@ -52,8 +53,9 @@ export const StyledButton = styled.button`
   &:hover {
     box-shadow: none;
 
-    background: ${(props: ButtonProps) =>
-      props.secondary && "rgba(8, 43, 96, 0.21)"};
-    color: ${(props: ButtonProps) => props.secondary && "rgba(8, 43, 96, 1)"};
+    background: ${(props) =>
+      props.variants === "primary" && "rgba(8, 43, 96, 0.21)"};
+    color: ${(props: ButtonProps) =>
+      props.variants === "primary" && "rgba(8, 43, 96, 1)"};
   }
 `;

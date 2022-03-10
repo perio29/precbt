@@ -5,24 +5,12 @@ export default {
   title: "Button",
 } as ComponentMeta<typeof StyledButton>;
 
-export const Primary = () => {
-  return (
-    <StyledButton disabled={false} primary={true} secondary={false}>
-      次の問題
-    </StyledButton>
-  );
+export const Default = () => {
+  return <StyledButton variants="default">次の問題</StyledButton>;
 };
-export const Secondary = () => {
-  return (
-    <StyledButton disabled={false} primary={false} secondary={true}>
-      試験終了
-    </StyledButton>
-  );
+export const Primary = () => {
+  return <StyledButton variants="primary">試験終了</StyledButton>;
 };
 export const Disabled = () => {
-  return (
-    <StyledButton disabled={true} primary={false} secondary={false}>
-      前の問題
-    </StyledButton>
-  );
+  return <StyledButton disabled={true}>前の問題</StyledButton>;
 };
