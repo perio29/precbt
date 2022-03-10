@@ -1,41 +1,28 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StyledButton } from "../src/components/Button/StyledButton";
+import { ComponentMeta } from "@storybook/react";
 
-import { Button } from './Button';
-
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Example/Button',
-  component: Button,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} as ComponentMeta<typeof Button>;
+  title: "Button",
+} as ComponentMeta<typeof StyledButton>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
-
-export const Primary = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Primary.args = {
-  primary: true,
-  label: 'Button',
+export const Primary = () => {
+  return (
+    <StyledButton disabled={false} primary={true} secondary={false}>
+      次の問題
+    </StyledButton>
+  );
 };
-
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: 'Button',
+export const Secondary = () => {
+  return (
+    <StyledButton disabled={false} primary={false} secondary={true}>
+      試験終了
+    </StyledButton>
+  );
 };
-
-export const Large = Template.bind({});
-Large.args = {
-  size: 'large',
-  label: 'Button',
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  label: 'Button',
+export const Disabled = () => {
+  return (
+    <StyledButton disabled={true} primary={false} secondary={false}>
+      前の問題
+    </StyledButton>
+  );
 };
