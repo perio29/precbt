@@ -1,4 +1,4 @@
-import { StyledButton } from "../src/components/Button/StyledButton";
+import { StyledButton } from "./StyledButton";
 import { ComponentMeta } from "@storybook/react";
 
 export default {
