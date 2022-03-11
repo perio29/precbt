@@ -1,20 +1,24 @@
 import React from "react";
 import styled from "styled-components";
+import { StyledButton } from "../Button/StyledButton";
 
 type Props = {
   title: string;
-  Button1: JSX.Element;
-  Button2: JSX.Element;
+  Button1: string;
+  Button2: string;
 };
 
-export const Modal: React.VFC<Props> = (props) => {
-  const { title, Button1, Button2 } = props;
+export const Modal: React.VFC<Props> = ({ title, Button1, Button2 }) => {
   return (
     <ModalWrapper>
       <ModalContent>
         <Title>{title}</Title>
-        <ButtonDiv>{Button1}</ButtonDiv>
-        <ButtonDiv>{Button2}</ButtonDiv>
+        <ButtonDiv>
+          <StyledButton variants="primary">{Button1}</StyledButton>
+        </ButtonDiv>
+        <ButtonDiv>
+          <StyledButton variants="default">{Button2}</StyledButton>
+        </ButtonDiv>
       </ModalContent>
     </ModalWrapper>
   );
