@@ -16,7 +16,7 @@ export const Question: React.VFC<Props> = ({ text, label }) => {
         {label.map((l, i) => (
           <RadioBox key={i}>
             <input id={`no${i + 1}`} type="radio" name="question" />
-            {i + 1}.<label htmlFor={`no${i}`}>{l}</label>
+            {i + 1}.<label htmlFor={`no${i + 1}`}>{l}</label>
           </RadioBox>
         ))}
       </RadioContainer>
