@@ -12,15 +12,15 @@ const Template: ComponentStory<typeof Navigation> = (args) => (
 
 export const Question1 = Template.bind({});
 Question1.args = {
-  QuestionNumber: 1,
+  questionNumber: 1,
 };
 
 export const Question2 = Template.bind({});
 Question2.args = {
-  QuestionNumber: 2,
+  questionNumber: 2,
 };
 
 export const Question50 = Template.bind({});
 Question50.args = {
-  QuestionNumber: 50,
+  questionNumber: 50,
 };

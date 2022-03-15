@@ -3,10 +3,12 @@ import styled from "styled-components";
 import { StyledButton } from "../Button/StyledButton";
 
 type Props = {
-  QuestionNumber: number;
+  questionNumber: number;
 };
 
-export const Navigation: React.VFC<Props> = ({ QuestionNumber }) => {
+export const Navigation: React.VFC<Props> = ({ questionNumber }) => {
+  const MIN_QUESTION_NUMBER = 1;
+  const MAX_QUESTION_NUMBER = 50;
   return (
     <Container>
       <TopContent>
@@ -19,16 +21,16 @@ export const Navigation: React.VFC<Props> = ({ QuestionNumber }) => {
           <PrevButton>
             <StyledButton
               variants="default"
-              disabled={QuestionNumber === 1 ? true : false}
+              disabled={questionNumber === MIN_QUESTION_NUMBER}
             >
               前の問題
             </StyledButton>
           </PrevButton>
-          <Title>問{QuestionNumber}</Title>
+          <Title>問{questionNumber}</Title>
           <NextButton>
             <StyledButton
               variants="default"
-              disabled={QuestionNumber === 50 ? true : false}
+              disabled={questionNumber === MAX_QUESTION_NUMBER}
             >
               次の問題
             </StyledButton>
