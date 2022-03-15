@@ -14,9 +14,9 @@ export const Question: React.VFC<Props> = ({ text, label }) => {
       </TextContainer>
       <RadioContainer>
         {label.map((l, i) => (
-          <RadioBox>
+          <RadioBox key={i}>
             <input id={`no${i + 1}`} type="radio" name="question" />
-            {i + 1}.<label htmlFor="no1">{l}</label>
+            {i + 1}.<label htmlFor={`no${i}`}>{l}</label>
           </RadioBox>
         ))}
       </RadioContainer>
@@ -51,6 +51,7 @@ const RadioBox = styled.div`
     display: block;
     margin-right: 20px;
     margin-top: 5px;
+    cursor: pointer;
   }
 
   label {
