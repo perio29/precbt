@@ -1,17 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-
-type Label = {
-  label1: string;
-  label2: string;
-  label3: string;
-  label4: string;
-  label5: string;
-};
 
 type Props = {
   text: string;
-  label: Label;
+  label: string[];
 };
 
 export const Question: React.VFC<Props> = ({ text, label }) => {
@@ -21,26 +13,12 @@ export const Question: React.VFC<Props> = ({ text, label }) => {
         <Text>{text}</Text>
       </TextContainer>
       <RadioContainer>
-        <RadioBox>
-          <input id="no1" type="radio" name="question" />
-          1.<label htmlFor="no1">{label.label1}</label>
-        </RadioBox>
-        <RadioBox>
-          <input id="no2" type="radio" name="question" />
-          2.<label htmlFor="no2">{label.label2}</label>
-        </RadioBox>
-        <RadioBox>
-          <input id="no3" type="radio" name="question" />
-          3.<label htmlFor="no3">{label.label3}</label>
-        </RadioBox>
-        <RadioBox>
-          <input id="no4" type="radio" name="question" />
-          4.<label htmlFor="no4">{label.label4}</label>
-        </RadioBox>
-        <RadioBox>
-          <input id="no5" type="radio" name="question" />
-          5.<label htmlFor="no5">{label.label5}</label>
-        </RadioBox>
+        {label.map((l, i) => (
+          <RadioBox>
+            <input id={`no${i + 1}`} type="radio" name="question" />
+            {i + 1}.<label htmlFor="no1">{l}</label>
+          </RadioBox>
+        ))}
       </RadioContainer>
     </>
   );
