@@ -2,19 +2,22 @@ import React from "react";
 import styled from "styled-components";
 
 type Props = {
-  questionNumber: number[];
+  questionNumbers: number[];
 };
 
-export const ExamTable: React.VFC<Props> = ({ questionNumber }) => {
+export const ExamTable: React.VFC<Props> = ({ questionNumbers }) => {
   return (
     <Container>
       <TableContent>
         <Table>
-          {questionNumber.map((i) => (
-            <tr key={i}>
-              <td>問{i}</td>
-              <td></td>
-            </tr>
+          {questionNumbers.map((questionNumber) => (
+            <tbody key={questionNumber}>
+              <tr>
+                <td>問{questionNumber}</td>
+                <td></td>
+                {/* radioボタンが押されたら、済を表示 flagで表示切り替えができる？ */}
+              </tr>
+            </tbody>
           ))}
         </Table>
       </TableContent>
