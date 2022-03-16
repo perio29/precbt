@@ -6,9 +6,15 @@ type Props = {
   title: string;
   Button1: string;
   Button2: string;
+  toggleModalOff: VoidFunction;
 };
 
-export const Modal: React.VFC<Props> = ({ title, Button1, Button2 }) => {
+export const Modal: React.VFC<Props> = ({
+  title,
+  Button1,
+  Button2,
+  toggleModalOff,
+}) => {
   return (
     <ModalWrapper>
       <ModalContent>
@@ -17,7 +23,9 @@ export const Modal: React.VFC<Props> = ({ title, Button1, Button2 }) => {
           <StyledButton variants="primary">{Button1}</StyledButton>
         </ButtonDiv>
         <ButtonDiv>
-          <StyledButton variants="default">{Button2}</StyledButton>
+          <StyledButton onClick={toggleModalOff} variants="default">
+            {Button2}
+          </StyledButton>
         </ButtonDiv>
       </ModalContent>
     </ModalWrapper>

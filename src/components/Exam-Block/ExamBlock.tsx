@@ -5,11 +5,17 @@ type Props = {
   title: number;
   volume: number;
   time: number;
+  toggleModalOn: any;
 };
 
-export const ExamBlock: React.VFC<Props> = ({ title, volume, time }) => {
+export const ExamBlock: React.VFC<Props> = ({
+  title,
+  volume,
+  time,
+  toggleModalOn,
+}) => {
   return (
-    <Container>
+    <Container onClick={toggleModalOn}>
       <Title>第{title}回</Title>
       <StyledDiv>
         <QuestionVolume>問題数: {volume}問</QuestionVolume>
@@ -21,6 +27,7 @@ export const ExamBlock: React.VFC<Props> = ({ title, volume, time }) => {
 
 const Container = styled.div`
   width: 70%;
+  margin: 0 auto;
   max-width: 1000px;
   padding: 0px 15px;
   border-radius: 20px;
