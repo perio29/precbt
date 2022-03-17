@@ -28,7 +28,6 @@ export const Header: React.VFC<Props> = ({ menu }) => {
 
 const StyledHeader = styled.header`
   width: 100%;
-  max-width: 1280px;
   height: 100px;
   display: flex;
   align-items: center;

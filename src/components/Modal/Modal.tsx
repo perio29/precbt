@@ -3,21 +3,29 @@ import styled from "styled-components";
 import { StyledButton } from "../Button/StyledButton";
 
 type Props = {
-  title: string;
-  Button1: string;
-  Button2: string;
+  testTitle: string;
+  startend: string;
+  cancel: string;
+  toggleModal: VoidFunction;
 };
 
-export const Modal: React.VFC<Props> = ({ title, Button1, Button2 }) => {
+export const Modal: React.VFC<Props> = ({
+  testTitle,
+  startend,
+  cancel,
+  toggleModal,
+}) => {
   return (
     <ModalWrapper>
       <ModalContent>
-        <Title>{title}</Title>
+        <Title>{testTitle}</Title>
         <ButtonDiv>
-          <StyledButton variants="primary">{Button1}</StyledButton>
+          <StyledButton variants="primary">{startend}</StyledButton>
         </ButtonDiv>
         <ButtonDiv>
-          <StyledButton variants="default">{Button2}</StyledButton>
+          <StyledButton onClick={toggleModal} variants="default">
+            {cancel}
+          </StyledButton>
         </ButtonDiv>
       </ModalContent>
     </ModalWrapper>
