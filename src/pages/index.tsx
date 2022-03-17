@@ -50,7 +50,7 @@ const Home: NextPage = () => {
         <Modal
           testTitle={`第${testNum}回`}
           startend="試験開始"
-          chancel="キャンセル"
+          cancel="キャンセル"
           toggleModal={toggleModal}
         />
       )}

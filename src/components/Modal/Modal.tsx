@@ -5,14 +5,14 @@ import { StyledButton } from "../Button/StyledButton";
 type Props = {
   testTitle: string;
   startend: string;
-  chancel: string;
+  cancel: string;
   toggleModal: VoidFunction;
 };
 
 export const Modal: React.VFC<Props> = ({
   testTitle,
   startend,
-  chancel,
+  cancel,
   toggleModal,
 }) => {
   return (
@@ -24,7 +24,7 @@ export const Modal: React.VFC<Props> = ({
         </ButtonDiv>
         <ButtonDiv>
           <StyledButton onClick={toggleModal} variants="default">
-            {chancel}
+            {cancel}
           </StyledButton>
         </ButtonDiv>
       </ModalContent>
