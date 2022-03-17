@@ -2,21 +2,21 @@ import React from "react";
 import styled from "styled-components";
 
 type Props = {
-  title: number;
+  testNumber: number;
   volume: number;
   time: number;
-  toggleModalOn: any;
+  toggleModal: VoidFunction;
 };
 
 export const ExamBlock: React.VFC<Props> = ({
-  title,
+  testNumber,
   volume,
   time,
-  toggleModalOn,
+  toggleModal,
 }) => {
   return (
-    <Container onClick={toggleModalOn}>
-      <Title>第{title}回</Title>
+    <Container onClick={toggleModal}>
+      <Title>第{testNumber}回</Title>
       <StyledDiv>
         <QuestionVolume>問題数: {volume}問</QuestionVolume>
         <TimeLimit>制限時間: {time}分</TimeLimit>

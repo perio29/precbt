@@ -6,23 +6,23 @@ import { Header } from "../components/Header/Header";
 import { Modal } from "../components/Modal/Modal";
 
 /* ダミーデータ　 */
-const dataList = [
-  { title: 1, volume: 50, time: 30 },
-  { title: 2, volume: 50, time: 30 },
-  { title: 3, volume: 50, time: 30 },
-  { title: 4, volume: 50, time: 30 },
+const testList = [
+  { testNumber: 1, volume: 50, time: 30 },
+  { testNumber: 2, volume: 50, time: 30 },
+  { testNumber: 3, volume: 50, time: 30 },
+  { testNumber: 4, volume: 50, time: 30 },
 ];
 
 const Home: NextPage = () => {
   const [isModalOn, setIsModalOn] = useState(false);
-  const [testNumber, setTestNumber] = useState(1);
+  const [testNum, setTestNum] = useState(1);
 
-  const toggleModalOn = () => {
+  const toggleModal = () => {
     setIsModalOn(!isModalOn);
   };
 
   const setNumber = (testNum: number) => {
-    setTestNumber(testNum);
+    setTestNum(testNum);
   };
 
   return (
@@ -31,13 +31,16 @@ const Home: NextPage = () => {
       <Container>
         <Title>試験一覧</Title>
         <SubTitle>受験する試験を選択してください</SubTitle>
-        {dataList.map((data) => (
-          <ExamBox key={data.title} onClick={() => setNumber(data.title)}>
+        {testList.map((data) => (
+          <ExamBox
+            key={data.testNumber}
+            onClick={() => setNumber(data.testNumber)}
+          >
             <ExamBlock
-              title={data.title}
+              testNumber={data.testNumber}
               volume={data.volume}
               time={data.time}
-              toggleModalOn={toggleModalOn}
+              toggleModal={toggleModal}
             />
           </ExamBox>
         ))}
@@ -45,10 +48,10 @@ const Home: NextPage = () => {
       </Container>
       {isModalOn && (
         <Modal
-          title={`第${testNumber}回`}
-          Button1="試験開始"
-          Button2="キャンセル"
-          toggleModalOff={toggleModalOn}
+          testTitle={`第${testNum}回`}
+          startend="試験開始"
+          chancel="キャンセル"
+          toggleModal={toggleModal}
         />
       )}
     </>
